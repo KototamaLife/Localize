@@ -7,7 +7,7 @@
 function l(){return (navigator.userLanguage||navigator.browserLanguage||navigator.language).substr(0,2);}
 function e(i){return document.getElementById(i);}
 function c(i,v){e(i).addEventListener('click',function(){s(v);return false;});}
-function t(i,t){e(i).textContent=t;}
+function t(i,t){var e=e(i);if(e){e.textContent=t;}}
 function r(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){t(k[i],j[k[i]]);}}
 function o(){r(JSON.parse(this.responseText));}
 function g(u,l){var h=new XMLHttpRequest();h.open('get',u,true);h.addEventListener('load',l);h.send();}
