@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Kototama Localize Test</title>
+<script>
+function l(){return (navigator.userLanguage||navigator.browserLanguage||navigator.language).substr(0,2);}
+function e(i){return document.getElementById(i);}
+function c(i,v){e(i).addEventListener('click',function(){s(v);return false;});}
+function t(i,t){e(i).textContent=t;}
+function r(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){t(k[i],j[k[i]]);}}
+function o(){r(JSON.parse(this.responseText));}
+function g(u,l){var h=new XMLHttpRequest();h.open('get',u,true);h.addEventListener('load',l);h.send();}
+function h(l){t('lang',l);g('l/'+l+'.json',o);}
+window.onload=function(){c('login',false);c('signup',true);h(l());}
+</script>
+<style>
+</style>
+</head>
+<body>
+	<table>
+		<thead>
+			<tr><td>Src(Japanese)</td><td>English(Default)</td><td>Select Language</td></tr>
+		</thead>
+		<tbody>
+			<tr><td>ログイン</td><td>Login</td><td id="login">Login</td></tr>			
+			<tr><td>新規塔奥</td><td>Sign up</td><td id="signup">Sign up</td></tr>			
+		</tbody>
+	</table>
+</body>
+</html>
