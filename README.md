@@ -8,7 +8,7 @@ Please to cooperate with localization.
 
 ### File naming convention
 
-    [ISO 3166-1 alpha-2].json
+    [ISO 639-1].json
 
 ### Contents specification
 
