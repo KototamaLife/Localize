@@ -12,10 +12,10 @@ function r(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){t(k[i],j[k[i]]);}
 function o(){r(JSON.parse(this.responseText||'{}'));}
 function g(u,l){var h=new XMLHttpRequest();h.open('get',u,true);h.addEventListener('load',l);h.send();}
 function h(l){g('l/'+l+'.json',o);}
-function s(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){e('ll').appendChild(new Option(k[i],j[k[i]]));}}
-function f(){s(JSON.parse(this.responseText||'{}'));}
-function i(){h(e('ll').value);}
-window.onload=function(){h(l());g('langlist.json',f);e('ll').addEventListener('change',i);}
+function s(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){e('ll').appendChild(new Option(k[i]+' '+j[k[i]]),k[i]);}}
+function f(){s(JSON.parse(this.responseText||'{}'));e('ll').addEventListener('change',i);}
+function i(){h(e('ll').value||l());}
+window.onload=function(){h(l());g('langlist.json',f);}
 </script>
 <style>
 </style>
@@ -23,11 +23,11 @@ window.onload=function(){h(l());g('langlist.json',f);e('ll').addEventListener('c
 <body>
 	<table>
 		<thead>
-			<tr><td>Src(Japanese)</td><td>English(Default)</td><td><select id="ll"><option>Select Language</option></select></td></tr>
+			<tr><td>Src(Japanese)</td><td>English(Default)</td><td><select id="ll"><option value="">Select Language</option></select></td></tr>
 		</thead>
 		<tbody>
-			<tr><td>ログイン</td><td>Login</td><td id="login">Login</td></tr>			
-			<tr><td>新規塔奥</td><td>Sign up</td><td id="signup">Sign up</td></tr>			
+			<tr><td>ログイン</td><td>Login</td><td id="login">Login</td></tr>
+			<tr><td>新規塔奥</td><td>Sign up</td><td id="signup">Sign up</td></tr>
 		</tbody>
 	</table>
 </body>
