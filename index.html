@@ -11,9 +11,9 @@ function t(i,t){var o=e(i);if(o){o.textContent=t;}}
 function r(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){t(k[i],j[k[i]]);}}
 function n(s){return !(n===200);}
 function o(){if(n(this.status)){return;}r(JSON.parse(this.responseText||'{}'));}
-function g(u,l){var h=new XMLHttpRequest();h.open('get',u,true);h.addEventListener('load',l);h.send();}
+function g(u,l){var h=new XMLHttpRequest();h.open('get',u,true);h.addEventListener('load',l);h.addEventListener('error',function(){});h.send();}
 function h(l){g('l/'+l+'.json',o);}
-function s(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){e('ll').appendChild(new Option(k[i]+' '+j[k[i]]),k[i]);}}
+function s(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){e('ll').appendChild(new Option(k[i]+' '+j[k[i]],k[i]));}}
 function f(){s(JSON.parse(this.responseText||'{}'));e('ll').addEventListener('change',i);}
 function i(){h(e('ll').value||l());}
 window.onload=function(){h(l());g('langlist.json',f);}
