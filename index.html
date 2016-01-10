@@ -9,7 +9,7 @@ function e(i){return document.getElementById(i);}
 function c(){var l=e('tl').children;for (var i=0;i<l.length;++i){l[i].children[2].textContent='';}}
 function t(i,t){var o=e(i);if(o){o.textContent=t;}}
 function r(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){t(k[i],j[k[i]]);}}
-function n(s){return !(n===200);}
+function n(s){return !(s===200);}
 function o(){c();if(n(this.status)){return;}r(JSON.parse(this.responseText||'{}'));}
 function g(u,l){var h=new XMLHttpRequest();h.open('get',u,true);h.addEventListener('load',l);h.addEventListener('error',function(){});h.send();}
 function h(l){g('l/'+l+'.json',o);}
@@ -19,12 +19,13 @@ function i(){h(e('ll').value||l());}
 window.onload=function(){h(l());g('langlist.json',f);}
 </script>
 <style>
+body{font-family:"Yu Gothic",YuGothic,Meiryo,sans-serif;}
 </style>
 </head>
 <body>
 	<table>
 		<thead>
-			<tr><td>Src(Japanese)</td><td>English(Default)</td><td><select id="ll"><option value="">Select Language</option></select></td></tr>
+			<tr><td>Source(Japanese)</td><td>Default(English)</td><td><select id="ll"><option value="">Select Language</option></select></td></tr>
 		</thead>
 		<tbody id="tl">
 			<tr><td>ログイン</td><td>Login</td><td id="login">Login</td></tr>
