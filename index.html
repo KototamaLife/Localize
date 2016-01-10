@@ -6,13 +6,16 @@
 <script>
 function l(){return (navigator.userLanguage||navigator.browserLanguage||navigator.language).substr(0,2);}
 function e(i){return document.getElementById(i);}
-function c(i,v){e(i).addEventListener('click',function(){s(v);return false;});}
+function c(i,v){e(i).addEventListener('click',function(){return false;});}
 function t(i,t){var o=e(i);if(o){o.textContent=t;}}
 function r(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){t(k[i],j[k[i]]);}}
-function o(){r(JSON.parse(this.responseText));}
+function o(){r(JSON.parse(this.responseText||'{}'));}
 function g(u,l){var h=new XMLHttpRequest();h.open('get',u,true);h.addEventListener('load',l);h.send();}
 function h(l){g('l/'+l+'.json',o);}
-window.onload=function(){c('login',false);c('signup',true);h(l());}
+function i(k,v){va o=document.createElement('option');o.setAttribute('value',k);o.textContent=v;return o;}
+function s(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){e('ll').appendChild(i(k[i],j[k[i]]));}}
+function f(){s(JSON.parse(this.responseText||'{}'));}
+window.onload=function(){h(l());g('langlist.json',f);}
 </script>
 <style>
 </style>
@@ -20,7 +23,7 @@ window.onload=function(){c('login',false);c('signup',true);h(l());}
 <body>
 	<table>
 		<thead>
-			<tr><td>Src(Japanese)</td><td>English(Default)</td><td>Select Language</td></tr>
+			<tr><td>Src(Japanese)</td><td>English(Default)</td><td><select id="ll"><option>Select Language</option></select></td></tr>
 		</thead>
 		<tbody>
 			<tr><td>ログイン</td><td>Login</td><td id="login">Login</td></tr>			
