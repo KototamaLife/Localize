@@ -14,7 +14,7 @@ If there is something wrong, please PullReq.
 
 ### Contents specification
 
-    {"Replacement id":"Replacement text"}
+    {"Target id":"Replacement text"}
 
 ## Test
 
