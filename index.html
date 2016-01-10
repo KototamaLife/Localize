@@ -9,7 +9,8 @@ function e(i){return document.getElementById(i);}
 function c(i,v){e(i).addEventListener('click',function(){return false;});}
 function t(i,t){var o=e(i);if(o){o.textContent=t;}}
 function r(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){t(k[i],j[k[i]]);}}
-function o(){r(JSON.parse(this.responseText||'{}'));}
+function n(s){return !(n===200);}
+function o(){if(n(this.status)){return;}r(JSON.parse(this.responseText||'{}'));}
 function g(u,l){var h=new XMLHttpRequest();h.open('get',u,true);h.addEventListener('load',l);h.send();}
 function h(l){g('l/'+l+'.json',o);}
 function s(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){e('ll').appendChild(new Option(k[i]+' '+j[k[i]]),k[i]);}}
