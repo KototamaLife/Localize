@@ -6,21 +6,30 @@
 <script>
 function l(){return (navigator.userLanguage||navigator.browserLanguage||navigator.language).substr(0,2);}
 function e(i){return document.getElementById(i);}
-function c(){var l=e('tl').children;for (var i=0;i<l.length;++i){l[i].children[2].textContent='';}}
+function c(){var l=e('tl').children;for(var i=0;i<l.length;++i){l[i].children[3].textContent='';}}
 function t(i,t){var o=e(i);if(o){o.textContent=t;}}
 function r(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){t(k[i],j[k[i]]);}}
 function n(s){return !(s===200);}
 function o(){c();if(n(this.status)){return;}r(JSON.parse(this.responseText||'{}'));}
 function g(u,l){var h=new XMLHttpRequest();h.open('get',u,true);h.addEventListener('load',l);h.addEventListener('error',function(){});h.send();}
 function h(l){g('l/'+l+'.json',o);}
-function s(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){e('ll').appendChild(new Option(k[i]+' '+j[k[i]],k[i]));}}
+function s(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){e('ll').appendChild(new Option(k[i]+' - '+j[k[i]],k[i]));}}
 function f(){s(JSON.parse(this.responseText||'{}'));e('ll').addEventListener('change',i);}
+function m(){this.parentElement.parentElement.classList[this.checked?'add':'remove']('mark');}
+function b(){var l=e('tl').children;for(var i=0;i<l.length;++i){l[i].children[0].children[0].addEventListener('click',m);}}
 function i(){h(e('ll').value||l());}
-window.onload=function(){h(l());g('langlist.json',f);}
+window.onload=function(){h(l());g('langlist.json',f);b();}
 </script>
 <style>
 body{font-family:"Yu Gothic",YuGothic,Meiryo,sans-serif;}
-table{margin:20px auto;}
+table{margin:20px auto;border:0px;}
+tr{transition:all 0.5s ease;}
+td{padding:3px 6px;}
+thead tr{background-color:#45dc8c;}
+tbody tr:nth-child(even){background-color:#f0f0f6;}
+tbody tr:nth-child(odd){background-color:#fcfcfc;}
+tbody tr:hover{background-color:#9eedc3;}
+tbody tr.mark{background-color:#9eedc3;}
 h1{text-align:center;}
 p{text-align:center;}
 </style>
@@ -30,11 +39,11 @@ p{text-align:center;}
 	<p>If there is something wrong, please PullReq(<a href="https://github.com/KototamaLife/Localize/" target="_blank">Github</a>).</p>
 	<table>
 		<thead>
-			<tr><td>Source(Japanese)</td><td>Default(English)</td><td><select id="ll"><option value="">Select Language</option></select></td></tr>
+			<tr><td></td><td>Source(Japanese)</td><td>Default(English)</td><td><select id="ll"><option value="">Select Language</option></select></td></tr>
 		</thead>
 		<tbody id="tl">
-			<tr><td>ログイン</td><td>Login</td><td id="login">Login</td></tr>
-			<tr><td>新規登録</td><td>Sign up</td><td id="signup">Sign up</td></tr>
+			<tr><td><input type="checkbox"/></td><td>ログイン</td><td>Login</td><td id="login">Login</td></tr>
+			<tr><td><input type="checkbox"/></td><td>新規登録</td><td>Sign up</td><td id="signup">Sign up</td></tr>
 		</tbody>
 	</table>
 </body>
