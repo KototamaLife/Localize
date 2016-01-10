@@ -12,10 +12,10 @@ function r(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){t(k[i],j[k[i]]);}
 function o(){r(JSON.parse(this.responseText||'{}'));}
 function g(u,l){var h=new XMLHttpRequest();h.open('get',u,true);h.addEventListener('load',l);h.send();}
 function h(l){g('l/'+l+'.json',o);}
-function i(k,v){va o=document.createElement('option');o.setAttribute('value',k);o.textContent=v;return o;}
-function s(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){e('ll').appendChild(i(k[i],j[k[i]]));}}
+function s(j){var k=Object.keys(j);for(var i=0;i<k.length;++i){e('ll').appendChild(new Option(k[i],j[k[i]]));}}
 function f(){s(JSON.parse(this.responseText||'{}'));}
-window.onload=function(){h(l());g('langlist.json',f);}
+function i(){h(e('ll').value);}
+window.onload=function(){h(l());g('langlist.json',f);e('ll').addEventListener('change',i);}
 </script>
 <style>
 </style>
