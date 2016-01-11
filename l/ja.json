@@ -1,5 +1,11 @@
 {
 "login":"ログイン",
+"loginb":"ログイン",
 "signup":"新規登録",
-"wrongwording":"言葉遣いがおかしいですか？"
-}
+"signupb":"新規登録",
+"wrongwording":"言葉遣いがおかしいですか？",
+"loginerror":"ログイン情報が違います。",
+"existid":"そのIDはすでに存在しています。",
+"existemail":"そのメールアドレスはすでに使われています。",
+"reservedid":"そのIDは予約済みです。必要な場合は管理者に連絡してください。",
+"lang":"日本語"}
